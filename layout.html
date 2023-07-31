@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     body{
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       }
+    canvas{
+        box-shadow: black 20px 20px 50px;
+    }
+    h1{ 
+        background: linear-gradient(45deg,#8a2be2,#ff1493);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>Snake Game</h1>
+    <canvas id="snake" width="400" height= "400"/>
+    <script src = "snake.js"></script>
+</body>
+</html>
