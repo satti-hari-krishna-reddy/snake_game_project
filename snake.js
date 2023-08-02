@@ -86,7 +86,7 @@ function drawScreen()
  function changeSnakeDirection(e)
 { 
 
-  if(!isKeyPressed) // this condition checks only one key press per function call
+  if(!isKeyPressed) // this condition allows only one key press per function call
     {
       isKeyPressed=true;
     
