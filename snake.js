@@ -64,7 +64,8 @@ function isGameOver()
     context.fillText("Game Over!", canvas.width/6.5, canvas.height/2);
   }
   return gameOver;
-}
+} 
+
 function drawScreen()
 {
    // fills black color on the  entire canvas
@@ -83,7 +84,8 @@ function drawScreen()
 }
 
  function changeSnakeDirection(e)
-{  
+{ 
+
   if(!isKeyPressed) // this condition checks only one key press per function call
     {
       isKeyPressed=true;
@@ -118,11 +120,13 @@ function changeFoodPosition()
 {    
     for(let i = 0;i<10;i++)
      {
-      // selects random position for food x,y
+      /* selects random position for food x,y and we are subtracting 1 to avoid 
+         the food being placed at border positions on the canvas*/
       foodX=Math.floor(Math.random()*((canvas.width/blockSize)-1))*(blockSize);
       foodY=Math.floor(Math.random()*((canvas.height/blockSize)-1))*(blockSize);
-      if(!snakePositions.has(foodX + "," +foodY))
-         return;
+
+      if(!snakePositions.has(foodX + "," +foodY))   
+           return;
      }
 }
 
@@ -169,7 +173,9 @@ function moveSnake()
 
      snakeBody[i]=snakeBody[i-1];
    }
-
+    
+   /* this condition is to handle when snakeBody = 1 and also to move
+    the part which was just behind the head to move to the previous head positon*/ 
   if(snakeBody.length>0)
     {
       snakeBody[0]=[snakeX,snakeY];
