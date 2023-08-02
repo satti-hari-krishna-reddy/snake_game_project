@@ -38,17 +38,12 @@ document.body.addEventListener("keydown",changeSnakeDirection);
 
 let touchStartX, touchStartY;
 
-canvas.addEventListener('touchstart', (event) => {
+document.addEventListener('touchstart', (event) => {
   touchStartX = event.touches[0].clientX;
   touchStartY = event.touches[0].clientY;
 });
 
-canvas.addEventListener('touchmove', (event) => {
-  // Prevent scrolling while detecting the swipe
-  event.preventDefault();
-});
-
-canvas.addEventListener('touchend', (event) => {
+document.addEventListener('touchend', (event) => {
   
   const touchEndX = event.changedTouches[0].clientX;
   const touchEndY = event.changedTouches[0].clientY;
