@@ -118,7 +118,7 @@ function drawScreen()
 // this function makes atmost 10 attempts to find a new position for food before it gives up
 function changeFoodPosition()
 {    
-    for(let i = 0;i<10;i++)
+    for(let i = 0; i < 10; i++)
      {
       /* selects random position for food x,y and we are subtracting 1 to avoid 
          the food being placed at border positions on the canvas*/
