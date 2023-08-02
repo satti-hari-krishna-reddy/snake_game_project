@@ -36,7 +36,62 @@ changeFoodPosition();
 // event listener to get input from keyboard arrow keys
 document.body.addEventListener("keydown",changeSnakeDirection);
 
-// we use this to allow only one key press per function
+let touchStartX, touchStartY;
+
+document.body.addEventListener('touchstart', (event) => {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+});
+
+document.body.addEventListener('touchmove', (event) => {
+  // Prevent scrolling while detecting the swipe
+  event.preventDefault();
+});
+
+document.body.addEventListener('touchend', (event) => {
+  
+  const touchEndX = event.changedTouches[0].clientX;
+  const touchEndY = event.changedTouches[0].clientY;
+
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  if (Math.abs(deltaX) > Math.abs(deltaY))
+   {
+    if (deltaX > 0 && velocityX!=-1)
+     {
+        // Swipe right
+        velocityX = 1;
+        velocityY = 0; 
+     } 
+
+    else if(deltaX < 0 && velocityX!=1)
+     {
+        // Swipe left
+        velocityX = -1;
+        velocityY = 0;
+     }
+  } 
+
+  else
+   {
+    if (deltaY > 0 && velocityY!=-1) 
+     {
+        // Swipe down
+        velocityX = 0;
+        velocityY = 1;
+    } 
+
+    else if(deltaY < 0 && velocityY!=1)
+     {
+       // Swipe up
+       velocityX = 0;
+       velocityY = -1;
+    }
+  }});
+
+
+// we use this to allow only one key press per function call
 let isKeyPressed = false;
 
 // This the the fuction that draws the game on the canvas 
@@ -53,7 +108,7 @@ function drawTheGame()
 
     drawScreen();
 
-    // this draws the snake after moving it
+    // this draws the snake after moving 
     drawSnake();
 
    // calls the drawTheGame function repeatedly so that we can make our snake moving
@@ -92,13 +147,17 @@ function drawScreen()
    // fills black color on the  entire canvas
    context.fillStyle='black';
    context.fillRect(0,0,canvas.width,canvas.height);
+
    // fills food block in red color at food x,y position
    context.fillStyle='red';
    context.fillRect(foodX,foodY,blockSize,blockSize);
+
    // draws the score at top right corner
    context.fillStyle='white';
    context.font="11px verdana";
    context.fillText("Score " + score, canvas.width-50, 10);
+
+   // reset it back to false to allow key presses for next function call 
    isKeyPressed=false;
 
 
