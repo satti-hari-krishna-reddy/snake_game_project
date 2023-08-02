@@ -13,7 +13,7 @@ const snakePositions = new Set();
 changeFoodPosition();
 
 // event listener to get input from keyboard arrow keys
-document.body.addEventListener("keyup",changeSnakeDirection);
+document.body.addEventListener("keydown",changeSnakeDirection);
 
 // we use this to allow only one key press per function
 let isKeyPressed = false;
