@@ -1,13 +1,34 @@
 const canvas = document.getElementById('snake');
 const context = canvas.getContext('2d');
 // snakeX , snakeY are head of the snake
-let foodX , foodY , velocityX=0 , velocityY=0 , blockSize=20 , snakeX=blockSize*5 , snakeY=blockSize*5 , gameOver=false , score = 0;
+let foodX , foodY , velocityX=0 , velocityY=0 , blockSize=15 , snakeX=blockSize*5 , snakeY=blockSize*5 , gameOver=false , score = 0;
 
 // an array to store the snake body
 let snakeBody=[];
 
 // set to store to x and y values of snake 
 const snakePositions = new Set();
+
+// Function to set canvas size and related calculations
+function setCanvasSize() {
+  // Check if the device is a desktop or mobile/tablet
+  const isDesktop = window.innerWidth > 768; 
+
+  if (isDesktop) {
+    // For desktop, set fixed canvas dimensions (e.g., 400x400)
+    canvas.width = 400;
+    canvas.height = 400;
+  } else {
+    // For mobile and tablet, set canvas dimensions to 80% of the window width and height
+    canvas.width = window.innerWidth * 0.8;
+    canvas.height = window.innerHeight * 0.7;
+  }
+}
+
+// Call setCanvasSize initially and add event listener for window resize
+setCanvasSize();
+window.addEventListener('resize', setCanvasSize);
+
 
 // first set an initial random position for the food
 changeFoodPosition();
@@ -36,7 +57,7 @@ function drawTheGame()
     drawSnake();
 
    // calls the drawTheGame function repeatedly so that we can make our snake moving
-    setTimeout(drawTheGame,1000/7); 
+    setTimeout(drawTheGame,1000/9); 
 
 }
 
@@ -60,7 +81,7 @@ function isGameOver()
   if(gameOver)
   {
     context.fillStyle='white';
-    context.font="50px verdana";
+    context.font=`${canvas.width * 0.1}px verdana`; 
     context.fillText("Game Over!", canvas.width/6.5, canvas.height/2);
   }
   return gameOver;
