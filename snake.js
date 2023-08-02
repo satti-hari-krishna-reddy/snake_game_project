@@ -43,7 +43,7 @@ document.body.addEventListener('touchstart', (event) => {
   touchStartY = event.touches[0].clientY;
 });
 
-document.body.addEventListener('touchmove', (event) => {
+document.addEventListener('touchmove', (event) => {
   // Prevent scrolling while detecting the swipe
   event.preventDefault();
 });
