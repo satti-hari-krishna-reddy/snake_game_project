@@ -38,12 +38,17 @@ document.body.addEventListener("keydown",changeSnakeDirection);
 
 let touchStartX, touchStartY;
 
-document.addEventListener('touchstart', (event) => {
+canvas.addEventListener('touchstart', (event) => {
+  event.preventDefault();
   touchStartX = event.touches[0].clientX;
   touchStartY = event.touches[0].clientY;
 });
 
-document.addEventListener('touchend', (event) => {
+canvas.addEventListener('touchmove', (event) => {
+  event.preventDefault();
+});
+
+canvas.addEventListener('touchend', (event) => {
   
   const touchEndX = event.changedTouches[0].clientX;
   const touchEndY = event.changedTouches[0].clientY;
