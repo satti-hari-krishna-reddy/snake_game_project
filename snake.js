@@ -242,7 +242,7 @@ function ifFoodEaten()
 
 function moveSnake()
 { 
-   // clear the previous positions of snake to store new positions
+   
    snakePositions.clear();
 
   // first move entire snake body one block position towards the head starting from tail
