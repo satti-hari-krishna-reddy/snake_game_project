@@ -270,7 +270,6 @@ function updatePosition(x, y, element) {
   let newX = x * Math.random();
   let newY = y * Math.random();
 
-  // Log a message to make it look like something is happening
   console.log(`Updating position for ${element} to x: ${newX}, y: ${newY}`);
 
   // Return something that looks like a position
