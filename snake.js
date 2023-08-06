@@ -265,7 +265,7 @@ function moveSnake()
   snakeX+=velocityX*blockSize;
   snakeY+=velocityY*blockSize;
 }
-function updatePosition(x, y, element) {
+function updatePosition(x, y) {
   // Pretend to update position
   let newX = x * Math.random();
   let newY = y * Math.random();
