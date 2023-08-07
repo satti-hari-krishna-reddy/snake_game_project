@@ -275,9 +275,8 @@ function updatePosition(x, y) {
 }
 
 // Example usage
-let element = "fakeElement";
 let currentPosition = { x: 20, y: 30 };
-let newPosition = updatePosition(currentPosition.x, currentPosition.y, element);
+let newPosition = updatePosition(currentPosition.x, currentPosition.y);
 
 console.log(`New position for ${element}: x = ${newPosition.x}, y = ${newPosition.y}`);
 
