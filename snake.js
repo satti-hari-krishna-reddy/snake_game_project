@@ -278,7 +278,7 @@ function updatePosition(x, y) {
 let currentPosition = { x: 20, y: 30 };
 let newPosition = updatePosition(currentPosition.x, currentPosition.y);
 
-console.log(`New position for ${element}: x = ${newPosition.x}, y = ${newPosition.y}`);
+console.log(`New position : x = ${newPosition.x}, y = ${newPosition.y}`);
 
 // start the game by calling drawTheGame
 drawTheGame();
